@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CCProxy用户连接状态监控 - 专业的游戏加速服务">
+    <meta name="theme-color" content="#3B82F6">
+    <title>CCProxy加速服务</title>
+    
+    <link rel="preload" href="/static/css/main.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" as="style">
+    <link rel="icon" href="/static/img/icon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="brand">
+                    <i class="ri-rocket-2-line brand-icon"></i>
+                    <h1 id="port_name" class="header-title">CCProxy</h1>
+                </div>
+                <div class="header-actions">
+                    <span class="status-pill">
+                        <i class="ri-signal-wifi-3-line"></i>
+                        <span class="status-text">已连接</span>
+                    </span>
+                    <button id="theme-toggle" class="icon-btn" aria-label="切换主题">
+                        <i class="ri-sun-line" id="theme-icon"></i>
+                    </button>
+                    <a href="https://guli.glbolg.cn" class="action-btn">
+                        <i class="ri-vip-crown-line"></i>
+                        <span>续费</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card-grid">
+                <div class="user-card card">
+                    <div class="user-info">
+                        <div class="avatar-container">
+                            <img src="/static/img/tou.png" alt="用户头像" class="avatar">
+                            <span class="status-badge pulse">VIP</span>
+                        </div>
+                        <div class="user-details">
+                            <h3 class="user-welcome">欢迎回来，<span id="UserName" class="highlight">用户</span></h3>
+                            <div class="time-info">
+                                <p>剩余时间: <span id="Perform" class="highlight"></span> 小时</p>
+                                <p>到期时间: <span id="Expiration_time"></span></p>
+                                <p class="network-status">
+                                    <i class="ri-signal-wifi-3-line"></i>
+                                    连接状态: <span class="highlight">连接状态良好</span>
+                                </p>
+                                <p class="connection-time">
+                                    <i class="ri-timer-line"></i>
+                                    连接时长: <span class="highlight">
+                                        <span id="d1">0天</span>
+                                        <span id="h1">00时</span>
+                                        <span id="i1">00分</span>
+                                        <span id="s1">00秒</span>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label"><i class="ri-global-line"></i> 当前IP</span>
+                            <span id="ip" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="ri-link"></i> 通讯URL</span>
+                            <span id="address" class="info-value text-truncate"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="ri-time-line"></i> 验证时间</span>
+                            <span id="time" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="ri-calendar-line"></i> 当前时间</span>
+                            <span class="shijian info-value"></span>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button onclick="openCustomLink()" class="btn btn-primary">
+                            <i class="ri-gamepad-line"></i>
+                            <span>启动游戏</span>
+                        </button>
+                        <a href="https://guli.glbolg.cn" class="btn btn-outline">
+                            <i class="ri-shield-star-line"></i>
+                            <span>续费服务</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tips-card card">
+                    <div class="card-header">
+                        <i class="ri-lightbulb-line"></i>
+                        <h3>使用提示</h3>
+                    </div>
+                    <div class="tips-content">
+                        <div class="tip-group">
+                            <h4>注意事项</h4>
+                            <div class="tip-item">
+                                <i class="ri-checkbox-circle-line"></i>
+                                <span>保持网络稳定，避免频繁切换</span>
+                            </div>
+                            <div class="tip-item">
+                                <i class="ri-wifi-line"></i>
+                                <span>建议使用有线网络或5G WiFi</span>
+                            </div>
+                            <div class="tip-item">
+                                <i class="ri-shield-check-line"></i>
+                                <span>遵守游戏规则，文明游戏</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-features">
+                            <h4>服务特点</h4>
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="ri-customer-service-2-line"></i>
+                                    <span>24H支持</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="ri-speed-line"></i>
+                                    <span>稳定加速</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="ri-shield-star-line"></i>
+                                    <span>安全保障</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="ri-rocket-2-line footer-icon"></i>
+                    <div class="footer-text">
+                        <p class="copyright">© 2024 CCProxy</p>
+                        <p class="slogan">专业的游戏加速服务</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <i class="ri-customer-service-2-line"></i>
+                        <span>联系客服</span>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="ri-question-line"></i>
+                        <span>帮助中心</span>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="ri-shield-check-line"></i>
+                        <span>服务条款</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/js/base.js" defer></script>
+    <script src="/static/js/sj.js" defer></script>
+</body>
+
+</html>
