@@ -258,8 +258,9 @@ CCProxy助手是一个专业的CCProxy代理服务器管理工具，采用现代
 如果您觉得这个工具对您有帮助，欢迎扫描下方二维码赞赏支持！您的支持是我们持续改进的动力！
 
 <div align="center">
-  <img src="WXzsm.png" alt="微信赞赏码" width="300"/>
+  <img src="https://raw.githubusercontent.com/Guli-Joy/CCProxy_Helper/master/assets/WXzsm.png" alt="微信赞赏码" width="300"/>
   <p>微信扫码赞赏</p>
+  <p><a href="assets/WXzsm.png" target="_blank">👉 如图片无法显示请点击这里</a></p>
 </div>
 
 ## 🤝 技术支持
